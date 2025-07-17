@@ -1,7 +1,7 @@
 # Bounding-Box Tuner (BBT)
 
-> **Adaptive Top-2 Bounding-Box Hyperparameter Tuner**  
-> Lightweight hyperparameter search with median-based early pruning.
+**Adaptive Top-2 Bounding-Box Hyperparameter Tuner**  
+Lightweight hyperparameter search with median-based early pruning.
 
 Bounding-Box Tuner (BBT) implements a simple but effective strategy to balance exploration and exploitation:
 
@@ -13,10 +13,10 @@ Bounding-Box Tuner (BBT) implements a simple but effective strategy to balance e
 
 ## 🚀 Features
 
-- **Easy integration**: plug BBT into any training loop via a one-line objective function  
-- **Fast partial training**: each trial runs for up to `max_epochs` epochs, but can be cut short if it underperforms  
-- **Minimal dependencies**: only standard Python libraries (`numpy`, `scipy`, `statistics`)  
-- **Configurable**: control total trials (`max_trials`), warm-up samples (`init_samples`), early stops, and more
+- **Easy integration**: Plug BBT into any training loop via a one-line objective function  
+- **Fast partial training**: Each trial runs for up to `max_epochs` epochs, but can be cut short if it underperforms  
+- **Minimal dependencies**: Only standard Python libraries (`numpy`, `scipy`, `statistics`)  
+- **Configurable**: Control total trials (`max_trials`), warm-up samples (`init_samples`), early stops, and more
 
 ---
 
