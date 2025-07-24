@@ -6,7 +6,6 @@ Lightweight hyperparameter search with median-based early pruning.
 [![GitHub Release](https://img.shields.io/github/v/release/abdulvahapmutlu/bounding-box-tuner-bbt)](https://github.com/abdulvahapmutlu/bounding-box-tuner-bbt/releases)
 [![Build Status](https://github.com/abdulvahapmutlu/bounding-box-tuner-bbt/actions/workflows/ci.yml/badge.svg)](https://github.com/abdulvahapmutlu/bounding-box-tuner-bbt/actions)
 [![PyPI version](https://img.shields.io/pypi/v/bbt-tuner.svg)](https://pypi.org/project/bbt-tuner)
-[![Coverage Status](https://coveralls.io/repos/github/abdulvahapmutlu/bounding-box-tuner-bbt/badge.svg?branch=main)](https://coveralls.io/github/abdulvahapmutlu/bounding-box-tuner-bbt?branch=main)
 
 
 Bounding-Box Tuner (BBT) implements a simple but effective strategy to balance exploration and exploitation:
