@@ -42,12 +42,7 @@ jobs:
         run: |
           coverage run -m pytest
           coverage xml
-
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage.xml
-
+     
   publish:
     name: Publish to PyPI
     runs-on: ubuntu-latest
