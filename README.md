@@ -56,11 +56,15 @@ best_params, best_score, trials_log, elapsed = adaptive_top2_box_tuner(
     init_samples=5,
     early_stopping_rounds=10,
     max_epochs=5,
+    explore_rate_start=0.35,    # initial random-sampling probability
+    explore_rate_end=0.10,      # final random-sampling probability
+    n_workers=0                 # number of parallel workers
 )
 
 print("Best params:", best_params)
 print("Best validation score:", best_score)
-print(f"Evaluated {len(trials_log)} trials in {elapsed:.1f}s.")
+print(f"Ran {len(trials_log)} trials in {elapsed:.1f}s.")
+
 ```
 
 ---
@@ -79,6 +83,9 @@ adaptive_top2_box_tuner(
     init_samples: int = 10,
     early_stopping_rounds: int = 30,
     max_epochs: int = 5,
+    explore_rate_start: float = 0.35,
+    explore_rate_end: float = 0.10,
+    n_workers: int = 1,
 ) -> Tuple[dict, float, List[dict], float]
 ```
 
@@ -86,19 +93,23 @@ adaptive_top2_box_tuner(
 
   1. `best_params` (dict): highest-scoring hyperparameter set
   2. `best_score` (float): corresponding validation metric
-  3. `trials_log` (list of dict):
+  3. `trials_log` (list of dict)
+  4. `total_time` (float)
 
      * `"params"`: dict
      * `"score"`: float
      * `"pruned"`: bool
      * `"epoch_scores"`: `{epoch: score}`
-  4. `total_time` (float): elapsed seconds
+  5. `total_time` (float): elapsed seconds
 
 * **Key args**
 
   * `param_space_dict`: map each hyperparameter to its sampling info (min/max, type, etc.)
   * `objective_fn`: called once per epoch—return validation score
   * `max_trials`, `init_samples`, `early_stopping_rounds`, `max_epochs`: control search budget & pruning
+  * `explore_rate_start`: starting probability of global random sampling
+  * `explore_rate_end`: ending probability of global random sampling
+  * `n_workers`: number of parallel processes (uses multiprocessing.Pool)
 
 See [`bbt/utils.py`](bbt/utils.py) for helpers:
 
