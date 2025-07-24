@@ -43,11 +43,10 @@ jobs:
           coverage run -m pytest
           coverage xml
 
-      # Optional: upload coverage to codecov/coveralls
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     files: coverage.xml
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
 
   publish:
     name: Publish to PyPI
