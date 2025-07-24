@@ -8,6 +8,7 @@ Bounding-Box Tuner (BBT) implements a simple but effective strategy to balance e
 1. **Top-2 bounding box sampling**: At each iteration, define a hyper-rectangular “box” around your two best configurations and sample new candidates inside it.  
 2. **Adaptive exploration schedule**: Start with 35 % global random sampling, then decay to 10 % to focus on the promising region.  (It can be adjusted)
 3. **Median-based partial-training pruning**: After every epoch _e_, prune any trial whose validation score falls below the median of all previous epoch-_e_ scores.
+4. **Optional parallel evaluation** via `n_workers`.
 
 ---
 
@@ -17,12 +18,13 @@ Bounding-Box Tuner (BBT) implements a simple but effective strategy to balance e
 - **Fast partial training**: Each trial runs for up to `max_epochs` epochs, but can be cut short if it underperforms  
 - **Minimal dependencies**: Only standard Python libraries (`numpy`, `scipy`, `statistics`)  
 - **Configurable**: Control total trials (`max_trials`), warm-up samples (`init_samples`), early stops, and more
+- **Parallel evaluation**: run up to `n_workers` trials concurrently
+- **Configurable exploration**: set your own `explore_rate_start` & `explore_rate_end` 
 
 ---
 
 ## 🔧 Installation
 
-> **Note**: this is a “start small” release—no PyPI package or CI badges yet.  
 > Install directly from GitHub:
 
 ```
